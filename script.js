@@ -1,3 +1,4 @@
+document.getElementById("fakeinput").focus(),
 document.addEventListener("keydown", function(e) {
     const alert = document.getElementById("alert"),
           how = "How about using event.",
