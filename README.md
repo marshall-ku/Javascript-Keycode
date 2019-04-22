@@ -11,7 +11,7 @@ Press any button to see event.key, event.location, event.which, event.code.
 If you click clipboard icon, the content of it will be copied to your clipboard.
 
 
-##note
+## note
 
 If you press shift + key, event.key detects the result, but event.which and event.code detect key only
 
