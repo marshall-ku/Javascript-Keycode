@@ -12,7 +12,7 @@ document.addEventListener("keydown", function(e) {
     document.getElementById("code").querySelector(".output").innerText = e.code;
 
     " "===e.key
-    ?(document.getElementById("key").querySelector(".output").classList.add("none"),document.getElementById("key").querySelector(".output").innerText="none")
+    ?(document.getElementById("key").querySelector(".output").classList.add("none"),document.getElementById("key").querySelector(".output").innerText="(blank)")
     :(document.getElementById("key").querySelector(".output").classList.remove("none"),document.getElementById("key").querySelector(".output").innerText=e.key);
 
     e.altKey||e.ctrlKey||e.shiftKey||e.metaKey
