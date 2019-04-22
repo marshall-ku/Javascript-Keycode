@@ -20,21 +20,26 @@ document.addEventListener("keydown", function(e) {
     ?(document.getElementById("key").querySelector(otp).classList.add("none"),document.getElementById("key").querySelector(otp).innerText="(blank)")
     :(document.getElementById("key").querySelector(otp).classList.remove("none"),document.getElementById("key").querySelector(otp).innerText=e.key);
 
-    alt||ctrl||shift||meta
-    ?(
-        alt&&(alert.innerHTML=`${how}altKey ${ins}`),
-        ctrl&&(alert.innerHTML=`${how}ctrlKey ${ins}`),
-        shift&&(alert.innerHTML=`${how}shiftKey ${ins}`),
-        meta&&(alert.innerHTML=`${how}metaKey ${ins}`),
-        shift&&"Shift"!==e.key&&(alert.innerHTML=`You pressed the key with Shift. Only event.key will detects it.`),
-        alert.classList.add("sp")
-    )
+    alt||ctrl||shift||meta||e.getModifierState("CapsLock")
+    ?(e.getModifierState("CapsLock")
+        ?(
+            alert.innerHTML="!!! Caps lock is ON !!!",
+            alert.classList.add("warning")
+        )
+        :(
+            alt&&(alert.innerHTML=`${how}altKey ${ins}`),
+            ctrl&&(alert.innerHTML=`${how}ctrlKey ${ins}`),
+            shift&&(alert.innerHTML=`${how}shiftKey ${ins}`),
+            meta&&(alert.innerHTML=`${how}metaKey ${ins}`),
+            shift&&"Shift"!==e.key&&(alert.innerHTML=`You pressed the key with Shift. Only event.key will detects it.`),
+            alert.classList.remove("warning")
+        ),alert.classList.add("sp"))
+    
     :alert.classList.contains("sp")&&(
         alert.innerHTML="! event.keyCode or event.which should no longer be used. <a href='https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent' target='_blank'>(?)</a>",
-        alert.classList.remove("sp")
+        alert.classList.remove("sp"),alert.classList.remove("warning")
     );
-
-
+    
     switch(e.location) {
         case 0:
         document.getElementById("location").querySelector(".desc").innerText = "Standard Keys";
