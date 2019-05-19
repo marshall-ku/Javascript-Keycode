@@ -64,7 +64,7 @@ Array.from(document.querySelectorAll(".copybtn")).forEach(a => {
               pop = document.getElementById("pop");
 
         pop.classList.remove("reveal");
-        input.value = a.parentNode.querySelector(otp).innerText;
+        input.value = a.parentNode.querySelector(".output").innerText;
         input.select();
         document.execCommand("copy");
         pop.classList.add("reveal");
